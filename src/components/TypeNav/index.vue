@@ -199,7 +199,7 @@ export default {
     //节流之后
     moveInDiv: throttle(
       function (index) {
-        console.log(index);
+        // console.log(index);
         this.currentIndex = index;
       },
       20,
