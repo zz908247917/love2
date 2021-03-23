@@ -18,8 +18,7 @@ const mutations = {
     RECEIVE_TOKEN(state, token) {
         state.token = token
     },
-    RECEIVE_USERINFO(state,
-        userInfo) {
+    RECEIVE_USERINFO(state, userInfo) {
         state.userInfo = userInfo
     },
     RESET_TOKEN(state) {
@@ -83,8 +82,6 @@ const actions = {
     },
     async resetUserInfo({ commit }) {
         commit('RESET_USERINFO')
-
-
         localStorage.removeItem('RESET_USERINFO')
 
     }

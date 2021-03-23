@@ -17,7 +17,7 @@
       <div class="content">
         <label>验证码:</label>
         <input type="text" placeholder="请输入验证码" v-model="code" />
-        <button style="width: 80px; height: 38px" @click="getCode()">
+        <button style="width: 80px; height: 38px" @click="getCode">
           获取验证码
         </button>
         <span class="error-msg">错误提示信息</span>
@@ -42,7 +42,7 @@
         <span class="error-msg">错误提示信息</span>
       </div>
       <div class="btn">
-        <button @click="register()">完成注册</button>
+        <button @click="register">完成注册</button>
       </div>
     </div>
 
@@ -73,7 +73,7 @@ export default {
       code: "",
       password: "",
       password2: "",
-      isChecked: "",
+      isChecked: true,
     };
   },
   methods: {
