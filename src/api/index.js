@@ -212,3 +212,32 @@ export const reqUserLogout = () => {
         method: 'get',
     })
 }
+
+
+
+export const reqTradeInfo = () => {
+    return Ajax({
+        url: '/order/auth/trade',
+        method: 'get',
+    })
+}
+
+
+export const reqUserAddressList = () => {
+    return Ajax({
+        url: '/user/userAddress/auth/findUserAddressList',
+        method: 'get',
+    })
+}
+
+
+
+
+
+export const reqSubmitOrder = (tradeNo, tradeInfo) => {
+    return Ajax({
+        url: `/order/auth/submitOrder?tradeNo=${tradeNo}`,
+        method: 'post',
+        data: tradeInfo
+    })
+}

@@ -7,7 +7,9 @@ import App from '@/App'
 import router from '@/router'
 import store from '@/store'
 
-import "@/mock/mockServer"  //引入mockserver模拟接口
+import * as API from '@/api'
+
+import "@/mock/mockServer" //引入mockserver模拟接口
 import 'swiper/css/swiper.css'
 
 
@@ -25,9 +27,9 @@ import TypeNav from '@/components/TypeNav'
 import SliderLoop from '@/components/SliderLoop'
 import Pagination from '@/components/Pagination'
 // Vue.component('TypeNav',TypeNav)
-Vue.component(TypeNav.name,TypeNav)
-Vue.component('SliderLoop',SliderLoop)
-Vue.component('Pagination',Pagination)
+Vue.component(TypeNav.name, TypeNav)
+Vue.component('SliderLoop', SliderLoop)
+Vue.component('Pagination', Pagination)
 
 
 Vue.config.productionTip = false
@@ -35,12 +37,13 @@ Vue.config.productionTip = false
 // var a = 100
 
 new Vue({
-  beforeCreate(){
-    Vue.prototype.$bus = this  //安装总线
-  },
-  render: h => h(App),
-  store, //从今往后任意组件内部都可以通过$store获取到我们的store对象
-  router,
-  //你这样写以后，今后每个组件内部都能通过this.$router获取到路由器对象 
-  //通过this.$route获取到当前的路由对象
+    beforeCreate() {
+        Vue.prototype.$bus = this //安装总线
+        Vue.prototype.$API = API
+    },
+    render: h => h(App),
+    store, //从今往后任意组件内部都可以通过$store获取到我们的store对象
+    router,
+    //你这样写以后，今后每个组件内部都能通过this.$router获取到路由器对象 
+    //通过this.$route获取到当前的路由对象
 }).$mount('#app')
