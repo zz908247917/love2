@@ -1,6 +1,6 @@
 import { reqTradeInfo, reqUserAddressList } from "@/api"
 
-//user模块的小store
+//trade模块的小store
 const state = {
     tradeInfo: {},
     userAddressList: []

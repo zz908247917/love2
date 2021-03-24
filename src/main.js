@@ -12,7 +12,8 @@ import * as API from '@/api'
 import "@/mock/mockServer" //引入mockserver模拟接口
 import 'swiper/css/swiper.css'
 
-
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
 
 // import '@/api'  //第一种测试
 
@@ -31,9 +32,15 @@ Vue.component(TypeNav.name, TypeNav)
 Vue.component('SliderLoop', SliderLoop)
 Vue.component('Pagination', Pagination)
 
-
+// Vue.use(ElementUI);
 Vue.config.productionTip = false
 
+import { Button, Tabs, MessageBox, Message } from 'element-ui'
+
+Vue.use(Button, Tabs)
+Vue.prototype.$msgbox = MessageBox;
+Vue.prototype.$alert = MessageBox.alert;
+Vue.prototype.$message = Message;
 // var a = 100
 
 new Vue({

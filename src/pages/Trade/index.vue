@@ -152,9 +152,9 @@ export default {
       };
       try {
         const result = await this.$API.reqSubmitOrder(tradeNo,tradeInfo);
-        this.orderNo = result
+        this.orderNo = result.data
         alert('成功')
-        this.$router.push('/pay?orderNo='+result)
+        this.$router.push('/pay?orderNo='+result.data)
       } catch (error) {
         alert(error.message+'失败')
       }

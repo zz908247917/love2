@@ -232,12 +232,28 @@ export const reqUserAddressList = () => {
 
 
 
-
-
 export const reqSubmitOrder = (tradeNo, tradeInfo) => {
     return Ajax({
         url: `/order/auth/submitOrder?tradeNo=${tradeNo}`,
         method: 'post',
         data: tradeInfo
+    })
+}
+
+
+
+
+export const reqPayInfo = (orderId) => {
+    return Ajax({
+        url: `/payment/weixin/createNative/${orderId}`,
+        method: 'get',
+    })
+}
+
+
+export const reqPayStatus = (orderId) => {
+    return Ajax({
+        url: `/payment/weixin/queryPayStatus/${orderId}`,
+        method: 'get',
     })
 }
