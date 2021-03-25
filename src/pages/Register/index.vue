@@ -25,7 +25,7 @@
       <div class="content">
         <label>登录密码:</label>
         <input
-          type="text"
+          type="password"
           placeholder="请输入你的登录密码"
           v-model="password"
         />
@@ -33,7 +33,11 @@
       </div>
       <div class="content">
         <label>确认密码:</label>
-        <input type="text" placeholder="请输入确认密码" v-model="password2" />
+        <input
+          type="password"
+          placeholder="请输入确认密码"
+          v-model="password2"
+        />
         <span class="error-msg">错误提示信息</span>
       </div>
       <div class="controls">
@@ -78,22 +82,29 @@ export default {
   },
   methods: {
     async getCode() {
-      try {
-        const result = await this.$store.dispatch("getCode", this.phone);
-        this.code = result;
-      } catch (error) {
-        alert(error.message + "手机验证码获取失败");
+      let { phone } = this;
+
+      if (this.phone) {
+        try {
+          const result = await this.$store.dispatch("getCode", this.phone);
+          this.code = result;
+        } catch (error) {
+          this.$message("请输入手机号");
+        }
+      }else{
+          this.$message.error("请输入手机号");
+
       }
     },
     async register() {
       let { phone, code, password, password2 } = this;
       if (phone && code && password && password2 && password2 === password) {
         try {
-          await this.$store.dispatch("userRegister",{ phone, code, password } );
-          alert('注册成功')
-          this.$router.push('/login')
+          await this.$store.dispatch("userRegister", { phone, code, password });
+          this.$message("注册成功");
+          this.$router.push("/login");
         } catch (error) {
-          alert(error.message + '注册失败')
+          this.$message("注册失败");
         }
       }
     },

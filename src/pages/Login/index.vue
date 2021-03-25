@@ -26,7 +26,7 @@
               <div class="input-text clearFix">
                 <span class="pwd"></span>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="请输入密码"
                   v-model="password"
                 />
@@ -93,7 +93,7 @@ export default {
           alert('登录成功')
           this.$router.push('/')
         } catch (error) {
-          alert(error.message)
+          this.$message.error(error.message + "登录失败");
         }
       }
     },

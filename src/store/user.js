@@ -36,7 +36,7 @@ const actions = {
             commit('RECEIVE_CODE', result.deta)
             return result.data
         } else {
-            return Promise.reject('failed')
+            return this.$message("请输入手机号");
         }
     },
     async userRegister({ commit }, userInfo) {

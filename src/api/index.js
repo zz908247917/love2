@@ -257,3 +257,14 @@ export const reqPayStatus = (orderId) => {
         method: 'get',
     })
 }
+
+
+//   /api/order/auth/{page}/{limit}
+
+export const reqRecordsList = (orderId) => {
+    return Ajax({
+        url: `/order/auth/${page}/${limit}`,
+        method: 'get',
+        data: records
+    })
+}
